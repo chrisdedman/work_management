@@ -84,7 +84,7 @@ void makeDatabase(fstream &data, vector<MyTimeWorked> &vDB)
 
     data.close();
 }
-
+ 
 // Read the database from file
 vector<MyTimeWorked> readData(fstream &data)
 {
