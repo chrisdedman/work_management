@@ -64,10 +64,11 @@ void getData(vector<MyTimeWorked> &vDB)
         cout << "Enter the task accomplished: ";
         getline(cin, myWork.task);
 
-        cout << "Enter the number of hours worked [in minutes]: ";
+        cout << "Enter the number of hours worked \x1B[94m[in minutes]\033[0m: ";
         cin >> myWork.hours;
         vDB.push_back(myWork);
     }
+    cout << "Work Saved to Database!" << endl;
 }
 
 // Make the database based on the vector data recorded
