@@ -27,19 +27,23 @@ int main()
     cout << "\033[2J\033[1;1H"; // Clear the screen
     cout << "\t\t\x1B[94m====== WARRIOR-TORO WORK DONE ======\033[0m\n"
          << endl;
-    cout << "\t\t[1] Record Work Done | [2] Read Work Done" << endl;
+    cout << "\t\t[1] Record Work Done | [2] Read Work Done | [3] Quit" << endl;
+    
+    while (true)
+    {
     cin >> option;
+        if (option == 1)
+        {
+            getData(vDB);
+            makeDatabase(data, vDB);
+        }
 
-    if (option == 1)
-    {
-        getData(vDB);
-        makeDatabase(data, vDB);
-    }
-
-    else if (option == 2)
-    {
-        vector<MyTimeWorked> vData = readData(data);
-        showDatabase(vData);
+        else if (option == 2)
+        {
+            vector<MyTimeWorked> vData = readData(data);
+            showDatabase(vData);
+        }
+        else if (option == 3) break;
     }
     return 0;
 }
@@ -143,4 +147,5 @@ void showDatabase(vector<MyTimeWorked> vData)
     {
         cout << "\n\x1B[35mTOTAL HOURS WORKED:\033[0m " << (totalWorked / 60) << ':' << (totalWorked % 60) << endl;
     }
+    cin.get();
 }
