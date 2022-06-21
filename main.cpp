@@ -27,7 +27,7 @@ int main()
     cout << "\033[2J\033[1;1H"; // Clear the screen
     cout << "\t\t\x1B[94m====== WARRIOR-TORO WORK DONE ======\033[0m\n"
          << endl;
-    cout << "\t\t[1] Record Work Done | [2] Read Work Done | [3] Quit" << endl;
+    cout << "\t[1] Record Work Done | [2] Read Work Done | [3] Quit" << endl;
     
     while (true)
     {
