@@ -1,7 +1,5 @@
 ## Time Worked Management
-App that give the user the opportunity to add their time worked into a database. 
-The user can record their time worked according to the date work as well as the task accomplish this day.
-The user have the option to view the full content of the database as well as the total hour worked.
+Give the user the ability to add their completed work to a database. The user can register his time worked according to the date of work as well as the task accomplished on this day. The user has the possibility to visualize the complete content of the database as well as the total number of hours worked.
 
 ### DEMO
 This is few screenshot of the program running.
