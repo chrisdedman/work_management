@@ -1,4 +1,4 @@
-## Work Time Management App
+## Work Management App
 Give the user the ability to add their completed work to a database. 
 
 #### The app allow you to:
