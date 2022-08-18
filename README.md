@@ -17,9 +17,6 @@ Project is created with:
 ## Author
    * [Christopher Dedman-Rollet](https://twitter.com/DedmanRollet)
    
-## License
-This project is licensed under the MIT License - see the [LICENSE](/LICENSE) file for details
-
 ## DEMO
 This is few screenshot of the program running.
 <img src="/images/menu.png" alt="Menu Demo">
