@@ -48,7 +48,7 @@ void MyWork::readData(std::fstream &spreadsheet)
     // This function gather data from file.
 
     MyWork work;
-    spreadsheet.open("database.dat", std::ios::in);
+    spreadsheet.open("time_worked.dat", std::ios::in);
     if (!spreadsheet)
     {
         printf("Database No Found!");
@@ -114,7 +114,7 @@ void MyWork::makeDatabase(std::fstream &spreadsheet)
 {
     // This function is recording data into file.
     
-    spreadsheet.open("database.dat", std::ios::app);
+    spreadsheet.open("time_worked.dat", std::ios::app);
     if (!spreadsheet)
     {
         printf("Database No Found!");
@@ -135,11 +135,10 @@ void MyWork::deleteDatabase()
     char deleteDatabase;
 
     printf("Do you want to delete all records? [Y/n] ");
-    scanf("%c", &deleteDatabase);
+    std::cin >> deleteDatabase;
     if (deleteDatabase == 'y' || deleteDatabase == 'Y')
     {
-        remove("database.dat");
+        remove("time_worked.dat");
         printf("Database Deleted!\n");
     }
-    else return;
 }
