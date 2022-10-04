@@ -12,7 +12,7 @@ Download the source code to your local computer, then compile it with your favor
 
 ## Technologies
 Project is created with:
-* C++23
+* C++20
 
 ## Author
    * [Christopher Dedman-Rollet](https://twitter.com/DedmanRollet)
