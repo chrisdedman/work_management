@@ -4,9 +4,8 @@
 #include <fstream>
 #include <iomanip>
 #include <string>
+#include <stdio.h>
 
-
-template <class T> 
 class MyWork
 {
     private:
@@ -29,26 +28,22 @@ class MyWork
         void makeDatabase(std::fstream &spreadsheet);
         void readData(std::fstream &spreadsheet);
         void showDatabase();
-        void delete_database();
+        void deleteDatabase();
 };
 
-template <class T>
-void MyWork<T>::showDatabase()
+void MyWork::showDatabase()
 {
     // This function is printing the data recorded from the file
     
     totalHours += getHours();
-        
-    std::cout << std::setw(15) << std::left << std::setfill(' ') << getDay()
-            << std::setw(10) << std::right << std::setfill(' ') << (getHours() / 60)
-            << std::setw(1) << std::left << ':'
-            << std::setw(2) << std::left << std::setfill('0') << (getHours() % 60)
-            << std::setw(4) << std::left << std::setfill(' ') << " "
-            << std::setw(20) << std::left << std::setfill(' ') << getTask() << std::endl;
+
+    int H = getHours() / 60; // hours
+    int M = getHours() % 60; // minutes
+
+    printf("%s\t%02d:%02d\t\t%s\n", getDay().c_str(), H, M, getTask().c_str());
 }
 
-template <class T>
-void MyWork<T>::readData(std::fstream &spreadsheet)
+void MyWork::readData(std::fstream &spreadsheet)
 {
     // This function gather data from file.
 
@@ -56,7 +51,7 @@ void MyWork<T>::readData(std::fstream &spreadsheet)
     spreadsheet.open("database.dat", std::ios::in);
     if (!spreadsheet)
     {
-        std::cout << "Database No Found!" << std::endl;
+        printf("Database No Found!");
         exit(1);
     }
     
@@ -64,10 +59,7 @@ void MyWork<T>::readData(std::fstream &spreadsheet)
     std::string myTask;
     int myHour;
 
-    std::cout << std::setw(15) << std::left << "\x1B[36mDATE WORKED\033[0m\t" 
-                << std::setw(15) << std::left << "\x1B[36mHOURS WORKED\033[0m\t" 
-                << std::setw(15) << std::left << "\x1B[36mTASK PERFORMED\033[0m\t" << std::endl;
-                
+    printf("\x1B[36mDATE WORKED\033[0m\t\x1B[36mHOURS WORKED\033[0m\t\x1B[36mTASK PERFORMED\033[0m\t\n");
     while (getline(spreadsheet, myDay))
     {
         spreadsheet >> myHour;
@@ -82,14 +74,14 @@ void MyWork<T>::readData(std::fstream &spreadsheet)
     }
 
     // Calculate the total hours worked according to the recorded data
-    std::cout << "\n\x1B[35mTOTAL HOURS WORKED:\033[0m " << (work.totalHours / 60) 
-                << ":" << std::setw(2) << std::setfill('0') << (work.totalHours % 60) << std::endl;
+    int totalH = (work.totalHours / 60); // Total hours worked
+    int totalM = (work.totalHours % 60); // Total minutes worked
+    printf("\n\x1B[35mTOTAL HOURS WORKED:\033[0m %02d:%02d\n", totalH, totalM);
 
     spreadsheet.close();
 }
 
-template <class T>
-void MyWork<T>::getData()
+void MyWork::getData()
 {   
     // This function is gathering the data to be recorded to file.
 
@@ -97,37 +89,35 @@ void MyWork<T>::getData()
     std::string myTask;
     int myHour;
 
-    std::cout << "Enter Work Information \x1B[31m[xxx to end]\033[0m" << std::endl;
+    printf("Enter Work Information \x1B[31m[xxx to end]\033[0m\n");
     while (true)
     {
         std::cin.ignore();
-        
-        std::cout << "Enter the date worked \x1B[94m[mm/dd/yyyy]\033[0m: ";
+        printf("Enter the date worked \x1B[94m[mm/dd/yyyy]\033[0m: ");
         getline(std::cin, myDay);
         if (myDay == "xxx") break;
         setDay(myDay);
 
-        std::cout << "Enter the task accomplished: ";
+        printf("Enter the task accomplished: ");
         getline(std::cin, myTask);
         setTask(myTask);
 
-        std::cout << "Enter the number of hours worked \x1B[94m[in minutes]\033[0m: ";
-        std::cin >> myHour;
+        printf("Enter the number of hours worked \x1B[94m[in minutes]\033[0m: ");
+        scanf("%d", &myHour);
         setHours(myHour);
 
         makeDatabase(spreadsheet);
     }
 }
 
-template <class T>
-void MyWork<T>::makeDatabase(std::fstream &spreadsheet)
+void MyWork::makeDatabase(std::fstream &spreadsheet)
 {
     // This function is recording data into file.
     
     spreadsheet.open("database.dat", std::ios::app);
     if (!spreadsheet)
     {
-        std::cout << "Database No Found!" << std::endl;
+        printf("Database No Found!");
         exit(1);
     }
 
@@ -138,19 +128,18 @@ void MyWork<T>::makeDatabase(std::fstream &spreadsheet)
     spreadsheet.close();
 }
 
-template <class T>
-void MyWork<T>::delete_database()
+void MyWork::deleteDatabase()
 {
     // This function is giving the option to delete the database.
-    
+
     char deleteDatabase;
 
-    std::cout << "Do you want to delete all records? [Y/n] ";
-    std::cin >> deleteDatabase;
+    printf("Do you want to delete all records? [Y/n] ");
+    scanf("%c", &deleteDatabase);
     if (deleteDatabase == 'y' || deleteDatabase == 'Y')
     {
         remove("database.dat");
-        std::cout << "Database Deleted!\n" << std::endl;
+        printf("Database Deleted!\n");
     }
     else return;
 }
