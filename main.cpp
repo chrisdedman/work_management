@@ -3,7 +3,7 @@
 
 int main()
 {
-    MyWork<std::string> DatabaseClass;
+    MyWork DatabaseClass;
 
     int option;
 
@@ -13,6 +13,7 @@ int main()
     
     while (true)
     {
+
         std::cin >> option;
         switch (option)
         {
@@ -28,7 +29,7 @@ int main()
             exit(1);
 
         case 4:
-            DatabaseClass.delete_database();
+            DatabaseClass.deleteDatabase();
             break;
         
         default:
