@@ -1,6 +1,8 @@
 #include <iostream>
 #include "work_data.h"
 
+void MyFile(std::string file);
+
 int main()
 {
     MyWork DatabaseClass;
@@ -18,7 +20,23 @@ int main()
         switch (option)
         {
         case 1:
-            DatabaseClass.getData();
+            char achieve;
+
+            printf("Would you like to achieve your file? Y/N ");
+            std::cin >> achieve;
+
+            if (achieve == 'n' || achieve == 'N')
+            {
+                DatabaseClass.getData();
+            }
+            
+            else
+            {
+                std::string dateAchieve;
+                printf("Add today's date to your file [mm-yy]: ");
+                std::cin >> dateAchieve;
+                MyFile(dateArchive);
+            }
             break;
 
         case 2:
@@ -37,4 +55,14 @@ int main()
         }
     }
     return 0;
+}
+
+void MyFile(std::string file)
+{
+    // This function will achieve the current file.
+    std::string newFile;
+    newFile = "time_worked_" + file + ".dat";
+    std::cout << newFile << std::endl;
+    rename("time_worked.dat", newFile.c_str());
+    printf("File Achieve!\n");
 }
