@@ -15,7 +15,7 @@ Project is created with:
 * C++20
 
 ## Author
-   * [Christopher Dedman-Rollet](https://twitter.com/DedmanRollet)
+   * [Christopher Dedman-Rollet](https://chrisdedman.vercel.app)
    
 ## DEMO
 This is few screenshot of the program running.
