@@ -35,7 +35,7 @@ int main()
                 std::string dateAchieve;
                 printf("Add today's date to your file [mm-yy]: ");
                 std::cin >> dateAchieve;
-                MyFile(dateArchive);
+                MyFile(dateAchieve);
             }
             break;
 
