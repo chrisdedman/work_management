@@ -1,6 +1,6 @@
 #include "work_data.h"
 
-void MyWork::showDatabase()
+void Work::showDatabase()
 {
     // This function is printing the data recorded from the file
     totalHours += getHours();
@@ -11,10 +11,10 @@ void MyWork::showDatabase()
     printf("%s\t%02d:%02d\t\t%s\n", getDay().c_str(), H, M, getTask().c_str());
 }
 
-void MyWork::readData(std::fstream &spreadsheet)
+void Work::readData(std::fstream &spreadsheet)
 {
     // This function gather data from file.
-    MyWork work;
+    Work work;
     spreadsheet.open("time_worked.dat", std::ios::in);
 
     if (!spreadsheet)
@@ -50,7 +50,7 @@ void MyWork::readData(std::fstream &spreadsheet)
     spreadsheet.close();
 }
 
-void MyWork::getData()
+void Work::getData()
 {
     // This function is gathering the data to be recorded to file.
     std::string myDay;
@@ -83,7 +83,7 @@ void MyWork::getData()
     }
 }
 
-void MyWork::makeDatabase(std::fstream &spreadsheet)
+void Work::makeDatabase(std::fstream &spreadsheet)
 {
     // This function is recording data into file.
     spreadsheet.open("time_worked.dat", std::ios::app);
@@ -101,7 +101,7 @@ void MyWork::makeDatabase(std::fstream &spreadsheet)
     spreadsheet.close();
 }
 
-void MyWork::deleteDatabase()
+void Work::deleteDatabase()
 {
     // This function is giving the option to delete the database.
     char deleteDatabase;
