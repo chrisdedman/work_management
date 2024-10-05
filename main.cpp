@@ -5,7 +5,7 @@ void MyFile(std::string file);
 
 int main()
 {
-    MyWork DatabaseClass;
+    Work data;
 
     int option;
 
@@ -27,7 +27,7 @@ int main()
 
             if ('n' == archive || 'N' == archive)
             {
-                DatabaseClass.getData();
+                data.getData();
             }
             
             else
@@ -40,14 +40,14 @@ int main()
             break;
 
         case 2:
-            DatabaseClass.readData(DatabaseClass.spreadsheet);
+            data.readData(data.spreadsheet);
             break;
 
         case 3:
             exit(1);
 
         case 4:
-            DatabaseClass.deleteDatabase();
+            data.deleteDatabase();
             break;
         
         default:
