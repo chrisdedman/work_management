@@ -20,22 +20,22 @@ int main()
         switch (option)
         {
         case 1:
-            char achieve;
+            char archive;
 
             printf("Would you like to achieve your file? Y/N ");
-            std::cin >> achieve;
+            std::cin >> archive;
 
-            if (achieve == 'n' || achieve == 'N')
+            if ('n' == archive || 'N' == archive)
             {
                 DatabaseClass.getData();
             }
             
             else
             {
-                std::string dateAchieve;
+                std::string dateArchive;
                 printf("Add today's date to your file [mm-yy]: ");
-                std::cin >> dateAchieve;
-                MyFile(dateAchieve);
+                std::cin >> dateArchive;
+                MyFile(dateArchive);
             }
             break;
 
@@ -59,10 +59,10 @@ int main()
 
 void MyFile(std::string file)
 {
-    // This function will achieve the current file.
-    std::string newFile;
-    newFile = "time_worked_" + file + ".dat";
+    // This function will archive the current file.
+    std::string newFile = "time_worked_" + file + ".dat";
     std::cout << newFile << std::endl;
+
     rename("time_worked.dat", newFile.c_str());
     printf("File Achieve!\n");
 }
