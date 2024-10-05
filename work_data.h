@@ -5,7 +5,7 @@
 #include <string>
 #include <stdio.h>
 
-class MyWork
+class Work
 {
 private:
     std::string day;
